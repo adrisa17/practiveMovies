@@ -1,49 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reseñas de Películas</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <header>
-      <h1>Reseñas de Películas</h1>
-    </header>
-    <main>
-      <section id="filtro-busqueda"></section>
-      <input type="text" id="busqueda" placeholder="Buscar películas..." />
-      <section id="listado-peliculas">
-        <div class="pelicula">
-          <img src="./src/fantasia.jpeg" alt="Imagen de la Película 1" />
-          <h2>Fantasía</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore
-          </p>
-        </div>
-        <div class="pelicula">
-          <img src="./src/moana.jpg" alt="Imagen de la Película 1" />
-          <h2>Moana</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore
-          </p>
-        </div>
-        <div class="pelicula">
-          <img src="./src/wish.jpg" alt="Imagen de la Película 1" />
-          <h2>Wish</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore
-          </p>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2024 Reseñas de Películas</p>
-    </footer>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo un mundo de películas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+
+  </header>
+  <main>
+    <section id="filtro-busqueda"></section>
+    <input type="text" id="busqueda" placeholder="Buscar películas..." />
+    <section id="listado-peliculas">
+      <div class="pelicula">
+        <img src="./src/Images/fantasia.jpeg" alt="Imagen de la Película Fantasía" />
+        <h2>Fantasía</h2>
+      </div>
+      <div class="pelicula">
+        <img src="./src/Images/Moana.webp" alt="Imagen de la Película Moana" />
+        <h2>Moana</h2>
+      </div>
+      <div class="pelicula">
+        <img src="./src/Images/wish.jpg" alt="Imagen de la Película Wish" />
+        <h2>Wish</h2>
+      </div>
+      <div class="pelicula">
+        <img src="./src/Images/encanto.jpeg" alt="Imagen de la Película Encanto" />
+        <h2>Encanto</h2>
+      </div>
+    </section>
+    <p id="sin-resultados" style="display: none;">No hay resultados para la búsqueda.</p>
+    <section id="detalle-pelicula" style="display: none;">
+      <img id="detalle-imagen" src="" alt="" />
+      <h2 id="detalle-titulo"></h2>
+    </section>
+  </main>
+  <footer>
+    <p>
+      <img class="footer" src="./src/Images/FOOTER.png" />
+      <span>&copy; 2024 WM</span>
+    </p>
+  </footer>
+
+
+  <script>
+    const input = document.getElementById('busqueda');
+    const peliculas = document.querySelectorAll('.pelicula');
+    const sinResultados = document.getElementById('sin-resultados');
+    const detallePelicula = document.getElementById('detalle-pelicula');
+    const detalleImagen = document.getElementById('detalle-imagen');
+    const detalleTitulo = document.getElementById('detalle-titulo');
+
+    input.addEventListener('input', function () {
+      const busqueda = this.value.toLowerCase();
+
+      let resultados = 0;
+
+      peliculas.forEach(function (pelicula) {
+        const titulo = pelicula.querySelector('h2').textContent.toLowerCase();
+
+        if (titulo.includes(busqueda)) {
+          pelicula.style.display = 'block';
+          resultados++;
+        } else {
+          pelicula.style.display = 'none';
+        }
+      });
+
+      if (resultados === 0) {
+        sinResultados.style.display = 'block';
+      } else {
+        sinResultados.style.display = 'none';
+      }
+    });
+
+    peliculas.forEach(function (pelicula) {
+      pelicula.addEventListener('click', function () {
+        const titulo = this.getAttribute('data-titulo');
+        const imagen = this.getAttribute('data-imagen');
+
+        detalleTitulo.textContent = titulo;
+        detalleImagen.src = imagen;
+        detallePelicula.style.display = 'block';
+      });
+    });
+
+  </script>
+</body>
+
 </html>

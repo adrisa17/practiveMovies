@@ -6,10 +6,14 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: #000000;
+    height: 100px;
     text-align: center;
     padding: 1rem 0;
+    background-image: url('./src/Images/worldmovies black.png');
+    background-size: 600px 400px; /* Tamaño de la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Posición de la imagen */
 }
 
 main {
@@ -70,13 +74,31 @@ main {
     margin-bottom: 10px;
     /* Añade un margen inferior para separar las imágenes */
 }
+.footer img {
+    height: 20px; /* Altura de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+p {
+    display: flex; /* Para alinear la imagen y el texto horizontalmente */
+    align-items: center; /* Para alinear verticalmente */
+    justify-content: center; /* Para alinear horizontalmente */
+    margin: 0; /* Eliminar el margen predeterminado */
+    height: 60%;
+    /* Mantiene la proporción de aspecto original */
+}
+
 
 footer {
-    background-color: #333;
+    background-color: #000000;
     color: white;
     text-align: center;
     padding: 1rem 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+    background-size: 20px auto; /* Tamaño de la imagen (20px de alto, ancho automático) */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center;
+    height: 50px; 
+    overflow: hidden;
 }
