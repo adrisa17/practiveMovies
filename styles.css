@@ -1,9 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+
 
 header {
     background-color: #000000;
@@ -16,11 +11,6 @@ header {
     background-position: center; /* Posición de la imagen */
 }
 
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
 
 #filtro-busqueda {
     margin-bottom: 20px;
@@ -47,33 +37,9 @@ main {
     /* Cambia el color del borde al enfocar */
 }
 
-#listado-peliculas {
-    display: flex;
-    justify-content: space-between;
-    /* Distribuye las películas uniformemente */
-}
 
-.pelicula {
-    flex: 0 0 calc(33.33% - 30px);
-    /* Tamaño de cada película con margen derecho */
-    margin-right: 30px;
-}
 
-/* Elimina el margen derecho de la última película */
-.pelicula:last-child {
-    margin-right: 0;
-}
 
-.pelicula img {
-    max-width: 100%;
-    /* Establece un ancho máximo del 100% del contenedor */
-    height: 60%;
-    /* Mantiene la proporción de aspecto original */
-    display: block;
-    /* Elimina el espacio adicional debajo de la imagen */
-    margin-bottom: 10px;
-    /* Añade un margen inferior para separar las imágenes */
-}
 .footer img {
     height: 20px; /* Altura de la imagen */
     margin-right: 10px; /* Espacio entre la imagen y el texto */

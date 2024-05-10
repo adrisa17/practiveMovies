@@ -5,41 +5,32 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Todo un mundo de películas</title>
+  <title>W|M - Todo un mundo de películas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css" />
-  <script src="script.js"></script>
+
 </head>
 
 <body>
   <header>
 
   </header>
+
   <main>
-    <section id="filtro-busqueda"></section>
-    <input type="text" id="busqueda" placeholder="Buscar películas..." />
-    <section id="listado-peliculas">
-      <div class="pelicula">
-        <img src="./src/Images/fantasia.jpeg" alt="Imagen de la Película Fantasía" />
-        <h2>Fantasía</h2>
+    <!-- BARRA DE NAVEGACION TRAIDA DE BOOTSTRAP -->
+    <nav class="navbar bg-dark navbar-dark">
+      <div class="container-fluid">
+        <form class="d-flex" role="search">
+          <input type="text" id="busqueda" placeholder="Buscar películas..." />
+        </form>
       </div>
-      <div class="pelicula">
-        <img src="./src/Images/Moana.webp" alt="Imagen de la Película Moana" />
-        <h2>Moana</h2>
-      </div>
-      <div class="pelicula">
-        <img src="./src/Images/wish.jpg" alt="Imagen de la Película Wish" />
-        <h2>Wish</h2>
-      </div>
-      <div class="pelicula">
-        <img src="./src/Images/encanto.jpeg" alt="Imagen de la Película Encanto" />
-        <h2>Encanto</h2>
-      </div>
-    </section>
-    <p id="sin-resultados" style="display: none;">No hay resultados para la búsqueda.</p>
-    <section id="detalle-pelicula" style="display: none;">
-      <img id="detalle-imagen" src="" alt="" />
-      <h2 id="detalle-titulo"></h2>
-    </section>
+    </nav>
+
+    <!--Contenido principal-->
+    <div class="container mt-4 mb-5">
+      <h2>Películas Recientes</h2>
+      <div class="row" id="listadePeliculas">
+
   </main>
   <footer>
     <p>
@@ -49,49 +40,9 @@
   </footer>
 
 
-  <script>
-    const input = document.getElementById('busqueda');
-    const peliculas = document.querySelectorAll('.pelicula');
-    const sinResultados = document.getElementById('sin-resultados');
-    const detallePelicula = document.getElementById('detalle-pelicula');
-    const detalleImagen = document.getElementById('detalle-imagen');
-    const detalleTitulo = document.getElementById('detalle-titulo');
+  <script src="main.js"></script>
 
-    input.addEventListener('input', function () {
-      const busqueda = this.value.toLowerCase();
 
-      let resultados = 0;
-
-      peliculas.forEach(function (pelicula) {
-        const titulo = pelicula.querySelector('h2').textContent.toLowerCase();
-
-        if (titulo.includes(busqueda)) {
-          pelicula.style.display = 'block';
-          resultados++;
-        } else {
-          pelicula.style.display = 'none';
-        }
-      });
-
-      if (resultados === 0) {
-        sinResultados.style.display = 'block';
-      } else {
-        sinResultados.style.display = 'none';
-      }
-    });
-
-    peliculas.forEach(function (pelicula) {
-      pelicula.addEventListener('click', function () {
-        const titulo = this.getAttribute('data-titulo');
-        const imagen = this.getAttribute('data-imagen');
-
-        detalleTitulo.textContent = titulo;
-        detalleImagen.src = imagen;
-        detallePelicula.style.display = 'block';
-      });
-    });
-
-  </script>
 </body>
 
 </html>
